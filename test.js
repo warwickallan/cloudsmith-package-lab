@@ -3,7 +3,7 @@ const hello = require('./index.js');
 
 assert.equal(
   hello(),
-  'Hello from Cloudsmith'
+  'Hello from GitHub'
 );
 
 console.log('PASS: Package returns the expected message');
