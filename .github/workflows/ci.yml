@@ -1,0 +1,33 @@
+
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v7
+
+      - name: Install Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Run automated tests
+        run: npm test
+
+      - name: Package software
+        run: npm pack
+
+      - name: Show build artifact
+        run: ls -lh *.tgz
