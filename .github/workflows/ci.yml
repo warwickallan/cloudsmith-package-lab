@@ -32,3 +32,12 @@ jobs:
 
       - name: Show build artifact
         run: ls -lh *.tgz
+      
+      - name: Set up Cloudsmith authentication
+        uses: cloudsmith-io/cloudsmith-cli-action@v3
+        with:
+          oidc-namespace: foundry_lab
+          oidc-service-slug: YOUR-SERVICE-SLUG
+
+      - name: Verify Cloudsmith identity
+        run: cloudsmith whoami
