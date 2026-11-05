@@ -41,3 +41,8 @@ jobs:
 
       - name: Verify Cloudsmith identity
         run: cloudsmith whoami
+        
+      - name: Publish to Cloudsmith
+        if: github.event_name == 'workflow_dispatch'
+        run: cloudsmith push npm foundry_lab/onboarding-lab ./*.tgz
+
