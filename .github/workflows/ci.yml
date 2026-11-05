@@ -37,7 +37,7 @@ jobs:
         uses: cloudsmith-io/cloudsmith-cli-action@v3
         with:
           oidc-namespace: foundry_lab
-          oidc-service-slug: YOUR-SERVICE-SLUG
+          oidc-service-slug: github-actions-publisher-km1l
 
       - name: Verify Cloudsmith identity
         run: cloudsmith whoami
